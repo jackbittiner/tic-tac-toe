@@ -13,6 +13,7 @@ class Game
   end
 
   def play_piece(cell_num)
+    raise "This cell is already filled!" if self.board.grid[cell_num].content != ""
     if @turn_count.even?
       self.board.grid[cell_num].content = self.player_1.piece
     else

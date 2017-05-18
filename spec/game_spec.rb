@@ -28,5 +28,10 @@ describe Game do
       game.play_piece(1)
       expect(game.board.grid[1].content).to eq 'O'
     end
+
+    it 'a piece cannot be placed on a cell that has already been placed on' do
+      game.play_piece(0)
+      expect{game.play_piece(0)}.to raise_error "This cell is already filled!"
+    end
   end
 end
