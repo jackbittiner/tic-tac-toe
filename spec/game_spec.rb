@@ -34,4 +34,16 @@ describe Game do
       expect{game.play_piece(0)}.to raise_error "This cell is already filled!"
     end
   end
+
+  describe 'check_for_win' do
+    it 'assigns a winner if there are three in a row' do
+      game.play_piece(0)
+      game.play_piece(8)
+      game.play_piece(1)
+      game.play_piece(7)
+      game.play_piece(2)
+      game.check_for_win
+      expect(game.winner).to eq 'X'
+    end
+  end
 end
