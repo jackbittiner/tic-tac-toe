@@ -57,4 +57,21 @@ describe Game do
       expect(game.winner).to eq 'O'
     end
   end
+
+  describe 'game_over' do
+
+    it 'is game over when all cells are filled' do
+      (1..8).each {|num| game.play_piece(num)}
+      expect(game.game_over).to be_truthy
+    end
+
+    it 'is game over when someone wins' do
+      game.play_piece(0)
+      game.play_piece(8)
+      game.play_piece(1)
+      game.play_piece(7)
+      game.play_piece(2)
+      expect(game.game_over).to be_truthy
+    end
+  end
 end
