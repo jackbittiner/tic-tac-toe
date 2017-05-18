@@ -18,9 +18,15 @@ describe Game do
   end
 
   describe 'play_piece' do
-    it 'changes a chosen cell player 1s piece' do
+    it 'changes a chosen cell to player 1s piece' do
       game.play_piece(0)
       expect(game.board.grid[0].content).to eq 'X'
+    end
+
+    it 'changes a chosen cell to player 2s piece after player 1 has done so' do
+      game.play_piece(0)
+      game.play_piece(1)
+      expect(game.board.grid[1].content).to eq 'O'
     end
   end
 end
