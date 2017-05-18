@@ -1,9 +1,9 @@
 class Cell
 
-  attr_reader :value
+  attr_reader :content
 
   def initialize
-    @value = ""
+    @content = ""
   end
 
 end
