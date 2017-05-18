@@ -36,7 +36,7 @@ describe Game do
   end
 
   describe 'check_for_win' do
-    it 'assigns a winner if there are three in a row' do
+    it 'assigns player 1 the winner if they get three in a row' do
       game.play_piece(0)
       game.play_piece(8)
       game.play_piece(1)
@@ -44,6 +44,17 @@ describe Game do
       game.play_piece(2)
       game.check_for_win
       expect(game.winner).to eq 'X'
+    end
+
+    it 'assigns player 2 the winner if they get three in a row' do
+      game.play_piece(1)
+      game.play_piece(0)
+      game.play_piece(7)
+      game.play_piece(8)
+      game.play_piece(2)
+      game.play_piece(4)
+      game.check_for_win
+      expect(game.winner).to eq 'O'
     end
   end
 end

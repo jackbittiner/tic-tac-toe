@@ -28,6 +28,7 @@ class Game
   def check_for_win
     self.winning_combos.each do |win|
       @winner = self.player_1.piece if win.all? { |num| self.board.grid[num].content == self.player_1.piece }
+      @winner = self.player_2.piece if win.all? { |num| self.board.grid[num].content == self.player_2.piece }
     end
   end
 
